@@ -35,7 +35,7 @@
 		</form>
        </div>
        <!--账单表格 样式和供应商公用-->
-      <table class="providerTable" cellpadding="0" cellspacing="5">
+      <table class="providerTable" cellpadding="0" cellspacing="0">
           <tr class="firstTr">
               <th width="10%">患者编号</th>
               <th width="10%">患者姓名</th>
@@ -68,8 +68,8 @@
 						<span>${pat.diag}</span>
 					</td>
 					<td>
-					<span><a class="viewBill" href="javascript:;" patientId=${pat.patientId } examCode=${pat.examCode }><img src="${pageContext.request.contextPath }/images/call1.png" alt="呼叫" title="呼叫"/></a></span>
-						<span><a class="viewBill" href="javascript:;" patientId=${pat.patientId } examCode=${pat.examCode }><img src="${pageContext.request.contextPath }/images/call2.png" alt="重呼" title="重呼"/></a></span>
+					<span><a class="viewBill" href="javascript:;" patientId=${pat.patientId } examCode=${pat.examCode }><img src="${pageContext.request.contextPath }/images/c1.png" alt="呼叫" title="呼叫"/></a></span>
+					<span><a class="viewBill" href="javascript:;" patientId=${pat.patientId } examCode=${pat.examCode }><img src="${pageContext.request.contextPath }/images/c3.png" alt="过号" title="过号"/></a></span>
 							<%--					<span><a class="modifyBill" href="javascript:;" billid=${bill.id } billcc=${bill.billCode }><img src="${pageContext.request.contextPath }/images/xiugai.png" alt="修改" title="修改"/></a></span>--%>
 <%--					<span><a class="deleteBill" href="javascript:;" billid=${bill.id } billcc=${bill.billCode }><img src="${pageContext.request.contextPath }/images/schu.png" alt="删除" title="删除" onclick="deleteBill(this)"/></a></span>--%>
 
