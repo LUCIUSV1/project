@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.PatientMapper">
+    <select id="getPatList" resultType="com.entity.Patient">
+        SELECT p.patientId,p.name,p.sex,p.age,p.date,p.diag
+        FROM patientinfo AS p
+        <where>
+            <if test=" patientId != null and patientId != ''">
+                 p.patientId like CONCAT ('%',#{patientId},'%')
+            </if>
+        </where>
+        order by p.date asc  limit #{begin},#{pageSize}
+    </select>
+
+    <select id="getPatientCount" resultType="Integer">
+        select count(1) from patientInfo
+        <where>
+            <if test="patientId!=null and patientId!=''">
+                and patientId like CONCAT ('%',#{patientId},'%')
+            </if>
+
+        </where>
+    </select>
+
+    <!-- 增加供应商 -->
+    <insert id="add" parameterType="com.entity.Provider">
+        insert into smbms_provider (proCode,proName,proDesc,proContact,proPhone,
+        proAddress,proFax,createdBy,creationDate)
+        values (#{proCode},#{proName},#{proDesc},#{proContact},#{proPhone},#{proAddress},
+        #{proFax},#{createdBy},#{creationDate})
+    </insert>
+
+    <!--查看供应商-->
+    <select id="getPro" resultType="com.entity.Provider">
+        select * from smbms_provider where id=#{id}
+    </select>
+    <!--//根据id查看该供应商下是否有未完成订单-->
+    <select id="getCount" resultType="integer">
+         SELECT COUNT(1) FROM smbms_provider p
+          INNER JOIN smbms_bill b ON b.`providerId`=p.`id`
+          WHERE b.`isPayment`=2 AND p.id=#{id}
+    </select>
+    <!--//开始删除-->
+    <delete id="delPro">
+        DELETE  from smbms_provider where id=#{id}
+    </delete>
+</mapper>
+
