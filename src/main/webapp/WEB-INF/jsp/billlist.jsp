@@ -31,7 +31,7 @@
 <%--       		</select>--%>
 		   <input type="hidden" name="pageIndex" value="1"/>
 			 <input	value="查 询" type="submit" id="searchbutton">
-			 <a href="${pageContext.request.contextPath }/jsp/billadd.jsp">添加订单</a>
+
 		</form>
        </div>
        <!--账单表格 样式和供应商公用-->
@@ -68,9 +68,11 @@
 						<span>${pat.diag}</span>
 					</td>
 					<td>
-<%--					<span><a class="viewBill" href="javascript:;" billid=${bill.id } billcc=${bill.billCode }><img src="${pageContext.request.contextPath }/images/read.png" alt="查看" title="查看"/></a></span>--%>
-<%--					<span><a class="modifyBill" href="javascript:;" billid=${bill.id } billcc=${bill.billCode }><img src="${pageContext.request.contextPath }/images/xiugai.png" alt="修改" title="修改"/></a></span>--%>
+					<span><a class="viewBill" href="javascript:;" patientId=${pat.patientId } examCode=${pat.examCode }><img src="${pageContext.request.contextPath }/images/call1.png" alt="呼叫" title="呼叫"/></a></span>
+						<span><a class="viewBill" href="javascript:;" patientId=${pat.patientId } examCode=${pat.examCode }><img src="${pageContext.request.contextPath }/images/call2.png" alt="重呼" title="重呼"/></a></span>
+							<%--					<span><a class="modifyBill" href="javascript:;" billid=${bill.id } billcc=${bill.billCode }><img src="${pageContext.request.contextPath }/images/xiugai.png" alt="修改" title="修改"/></a></span>--%>
 <%--					<span><a class="deleteBill" href="javascript:;" billid=${bill.id } billcc=${bill.billCode }><img src="${pageContext.request.contextPath }/images/schu.png" alt="删除" title="删除" onclick="deleteBill(this)"/></a></span>--%>
+
 					</td>
 				</tr>
 			</c:forEach>

@@ -24,7 +24,7 @@ public class PatientController {
                          @RequestParam(value = "pageIndex",required = false)String pageIndex,
                          Model model, HttpSession session){
         //设置页面容量
-        int pageSize = 8;
+        int pageSize = 5;
         int currentPageNo = 1;//页码
         if(pageIndex!=null){
             currentPageNo=Integer.parseInt(pageIndex);
